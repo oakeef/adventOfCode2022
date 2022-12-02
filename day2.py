@@ -23,34 +23,22 @@ for round in rockPaperScissorsRounds:
 
     # P1 and P2 tie
     if opponentScore == PlayerScore:
-        totalScore += PlayerScore
-        totalScore += tie
+        totalScore += PlayerScore + tie
  
     # P1 Rock vs P2 Paper = P2 Win
     elif opponentScore == 1 and PlayerScore == 2:
-        totalScore += PlayerScore
-        totalScore += win
-
-    # P1 Rock vs P2 Scissors = P2 Loss
-    elif opponentScore == 1 and PlayerScore == 3: 
-        totalScore += PlayerScore
-
-    # P1 Paper vs P2 Rock = P2 Loss
-    elif opponentScore == 2 and PlayerScore == 1: 
-        totalScore += PlayerScore
+        totalScore += PlayerScore + win
 
     # P1 Paper vs P2 Scissors = P2 Win
     elif opponentScore == 2 and PlayerScore == 3: 
-        totalScore += PlayerScore
-        totalScore += win
-    
+        totalScore += PlayerScore + win
+
     # P1 Scissors vs P2 Rock = P2 Win
     elif opponentScore == 3 and PlayerScore == 1:
-        totalScore += PlayerScore
-        totalScore += win
+        totalScore += PlayerScore + win
 
-    # P1 Scissors vs P2 Paper = P2 Loss
-    elif opponentScore == 3 and PlayerScore == 2: 
+    # All other scenarios are P2 loss
+    else:
         totalScore += PlayerScore
         
 
