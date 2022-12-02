@@ -19,29 +19,28 @@ with open('day2input.txt') as rounds:
 
 for round in rockPaperScissorsRounds:
     opponentScore = scoring[round[0]]
-    PlayerScore = scoring[round[1]]
+    playerScore = scoring[round[1]]
 
     # P1 and P2 tie
-    if opponentScore == PlayerScore:
-        totalScore += PlayerScore + tie
+    if opponentScore == playerScore:
+        totalScore += playerScore + tie
  
     # P1 Rock vs P2 Paper = P2 Win
-    elif opponentScore == 1 and PlayerScore == 2:
-        totalScore += PlayerScore + win
+    elif opponentScore == 1 and playerScore == 2:
+        totalScore += playerScore + win
 
     # P1 Paper vs P2 Scissors = P2 Win
-    elif opponentScore == 2 and PlayerScore == 3: 
-        totalScore += PlayerScore + win
+    elif opponentScore == 2 and playerScore == 3: 
+        totalScore += playerScore + win
 
     # P1 Scissors vs P2 Rock = P2 Win
-    elif opponentScore == 3 and PlayerScore == 1:
-        totalScore += PlayerScore + win
+    elif opponentScore == 3 and playerScore == 1:
+        totalScore += playerScore + win
 
     # All other scenarios are P2 loss
     else:
-        totalScore += PlayerScore
+        totalScore += playerScore
         
-
 print(totalScore)
 
 # Part 2
@@ -74,12 +73,10 @@ for round in rockPaperScissorsRounds:
     playerStrat = startegy[round[1]]
 
     if playerStrat == "tie":
-        totalScoreReal += opponentScore
-        totalScoreReal += tie
+        totalScoreReal += opponentScore + tie
 
     elif playerStrat == "win":
-        totalScoreReal += findUserScoreWin(opponentScore)
-        totalScoreReal += win
+        totalScoreReal += findUserScoreWin(opponentScore) + win
         
     else:
         totalScoreReal += findUserScoreLoss(opponentScore)
