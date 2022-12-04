@@ -20,7 +20,10 @@ for pair in elfPairs:
     startElf2 = pair[1][0]
     endElf2 = pair[1][1]
 
-    if startElf1 <= endElf2 and startElf1 >= startElf2 and endElf1 <= endElf2 and endElf1 >= startElf2 or startElf2 <= endElf1 and startElf2 >= startElf1 and endElf2 <= endElf1 and endElf2 >= startElf1:
+    rangeElf1 = range(startElf1, endElf1+1)
+    rangeElf2 = range(startElf2, endElf2+1)
+
+    if startElf1 in rangeElf2 and endElf1 in rangeElf2 or startElf2 in rangeElf1 and endElf2 in rangeElf1:
         sameRange +=1
               
 print(sameRange)
