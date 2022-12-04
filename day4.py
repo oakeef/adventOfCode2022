@@ -13,6 +13,7 @@ with open('day4input.txt') as pairs:
         elfPairs.append(elfPairNums)
 
 sameRange = 0
+intersection = 0
 
 for pair in elfPairs:
     startElf1 = pair[0][0]
@@ -25,5 +26,9 @@ for pair in elfPairs:
 
     if startElf1 in rangeElf2 and endElf1 in rangeElf2 or startElf2 in rangeElf1 and endElf2 in rangeElf1:
         sameRange +=1
+    
+    if set(rangeElf1).intersection(rangeElf2) or set(rangeElf2).intersection(rangeElf1):
+        intersection +=1
               
 print(sameRange)
+print(intersection)
